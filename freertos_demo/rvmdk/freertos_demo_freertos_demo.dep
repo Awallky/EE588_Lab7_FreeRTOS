@@ -1,0 +1,240 @@
+Dependencies for Project 'freertos_demo', Target 'freertos_demo': (DO NOT MODIFY !)
+F (.\freertos_demo.c)(0x59F17206)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I . -I ..\FreeRTOS\Source\include -I ..\TI -I ..\TI\examples/boards\ek-tm4c123gxl -I ..\FreeRTOS\Source\portable\RVDS\ARM_CM4F --c99-I.\RTE\_freertos_demo-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\rvmdk\freertos_demo.o --omf_browse .\rvmdk\freertos_demo.crf --depend .\rvmdk\freertos_demo.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588C2C04)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
+I (./../ti/TivaWare_C_Series-2.1.4.178/inc/hw_memmap.h)(0x59E567CD)
+I (./../ti/TivaWare_C_Series-2.1.4.178/inc/hw_types.h)(0x59E567CD)
+I (./../ti/TivaWare_C_Series-2.1.4.178/driverlib/gpio.h)(0x59D77332)
+I (./../ti/TivaWare_C_Series-2.1.4.178/driverlib/pin_map.h)(0x5453A11A)
+I (./../ti/TivaWare_C_Series-2.1.4.178/driverlib/rom.h)(0x5453992A)
+I (./../ti/TivaWare_C_Series-2.1.4.178/driverlib/sysctl.h)(0x5453992A)
+I (./../ti/TivaWare_C_Series-2.1.4.178/driverlib/uart.h)(0x5453992A)
+I (./../ti/TivaWare_C_Series-2.1.4.178/utils/uartstdio.h)(0x59E567E1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x588C2C04)
+I (led_task.h)(0x59BEEAD4)
+I (switch_task.h)(0x59F14C9E)
+I (..\FreeRTOS\Source\include\FreeRTOS.h)(0x573F3A16)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x588C2C04)
+I (.\FreeRTOSConfig.h)(0x59BEEAD4)
+I (..\FreeRTOS\Source\include\projdefs.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\portable.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\deprecated_definitions.h)(0x573F3A16)
+I (..\FreeRTOS\Source\portable\RVDS\ARM_CM4F\portmacro.h)(0x573F3A18)
+I (..\FreeRTOS\Source\include\mpu_wrappers.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\task.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\list.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\queue.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\semphr.h)(0x573F3A16)
+I (./../inc/tm4c123gh6pm.h)(0x54D0F112)
+I (BSP.h)(0x57E509EC)
+I (accelerometer_task.h)(0x59F169D3)
+I (./../ti/TivaWare_C_Series-2.1.4.178/examples/boards/ek-tm4c123gxl/drivers/rgb.h)(0x59E567AF)
+I (./../ti/TivaWare_C_Series-2.1.4.178/examples/boards/ek-tm4c123gxl/drivers/buttons.h)(0x59E567AF)
+I (priorities.h)(0x59F1605C)
+F (.\led_task.c)(0x59F16BD3)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I . -I ..\FreeRTOS\Source\include -I ..\TI -I ..\TI\examples/boards\ek-tm4c123gxl -I ..\FreeRTOS\Source\portable\RVDS\ARM_CM4F --c99-I.\RTE\_freertos_demo-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\rvmdk\led_task.o --omf_browse .\rvmdk\led_task.crf --depend .\rvmdk\led_task.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588C2C04)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
+I (./../ti/TivaWare_C_Series-2.1.4.178/inc/hw_memmap.h)(0x59E567CD)
+I (./../ti/TivaWare_C_Series-2.1.4.178/inc/hw_types.h)(0x59E567CD)
+I (./../ti/TivaWare_C_Series-2.1.4.178/driverlib/gpio.h)(0x59D77332)
+I (./../ti/TivaWare_C_Series-2.1.4.178/driverlib/rom.h)(0x5453992A)
+I (./../ti/TivaWare_C_Series-2.1.4.178/examples/boards/ek-tm4c123gxl/drivers/rgb.h)(0x59E567AF)
+I (./../ti/TivaWare_C_Series-2.1.4.178/examples/boards/ek-tm4c123gxl/drivers/buttons.h)(0x59E567AF)
+I (./../ti/TivaWare_C_Series-2.1.4.178/utils/uartstdio.h)(0x59E567E1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x588C2C04)
+I (led_task.h)(0x59BEEAD4)
+I (priorities.h)(0x59F1605C)
+I (..\FreeRTOS\Source\include\FreeRTOS.h)(0x573F3A16)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x588C2C04)
+I (.\FreeRTOSConfig.h)(0x59BEEAD4)
+I (..\FreeRTOS\Source\include\projdefs.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\portable.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\deprecated_definitions.h)(0x573F3A16)
+I (..\FreeRTOS\Source\portable\RVDS\ARM_CM4F\portmacro.h)(0x573F3A18)
+I (..\FreeRTOS\Source\include\mpu_wrappers.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\task.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\list.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\queue.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\semphr.h)(0x573F3A16)
+I (./../inc/tm4c123gh6pm.h)(0x54D0F112)
+I (BSP.h)(0x57E509EC)
+F (.\switch_task.c)(0x59F170E0)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I . -I ..\FreeRTOS\Source\include -I ..\TI -I ..\TI\examples/boards\ek-tm4c123gxl -I ..\FreeRTOS\Source\portable\RVDS\ARM_CM4F --c99-I.\RTE\_freertos_demo-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\rvmdk\switch_task.o --omf_browse .\rvmdk\switch_task.crf --depend .\rvmdk\switch_task.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588C2C04)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
+I (./../ti/TivaWare_C_Series-2.1.4.178/inc/hw_memmap.h)(0x59E567CD)
+I (./../ti/TivaWare_C_Series-2.1.4.178/inc/hw_types.h)(0x59E567CD)
+I (./../ti/TivaWare_C_Series-2.1.4.178/inc/hw_gpio.h)(0x59E567CD)
+I (./../ti/TivaWare_C_Series-2.1.4.178/driverlib/sysctl.h)(0x5453992A)
+I (./../ti/TivaWare_C_Series-2.1.4.178/driverlib/gpio.h)(0x59D77332)
+I (./../ti/TivaWare_C_Series-2.1.4.178/driverlib/rom.h)(0x5453992A)
+I (./../ti/TivaWare_C_Series-2.1.4.178//examples/boards/ek-tm4c123gxl/drivers/buttons.h)(0x59E567AF)
+I (./../ti/TivaWare_C_Series-2.1.4.178/utils/uartstdio.h)(0x59E567E1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x588C2C04)
+I (switch_task.h)(0x59F14C9E)
+I (led_task.h)(0x59BEEAD4)
+I (priorities.h)(0x59F1605C)
+I (..\FreeRTOS\Source\include\FreeRTOS.h)(0x573F3A16)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x588C2C04)
+I (.\FreeRTOSConfig.h)(0x59BEEAD4)
+I (..\FreeRTOS\Source\include\projdefs.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\portable.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\deprecated_definitions.h)(0x573F3A16)
+I (..\FreeRTOS\Source\portable\RVDS\ARM_CM4F\portmacro.h)(0x573F3A18)
+I (..\FreeRTOS\Source\include\mpu_wrappers.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\task.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\list.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\queue.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\semphr.h)(0x573F3A16)
+I (./../inc/tm4c123gh6pm.h)(0x54D0F112)
+I (BSP.h)(0x57E509EC)
+F (.\BSP.c)(0x57E509A8)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I . -I ..\FreeRTOS\Source\include -I ..\TI -I ..\TI\examples/boards\ek-tm4c123gxl -I ..\FreeRTOS\Source\portable\RVDS\ARM_CM4F --c99-I.\RTE\_freertos_demo-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\rvmdk\bsp.o --omf_browse .\rvmdk\bsp.crf --depend .\rvmdk\bsp.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
+I (BSP.h)(0x57E509EC)
+I (../inc/tm4c123gh6pm.h)(0x54D0F112)
+F (.\startup_rvmdk.S)(0x59F14EA3)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_freertos_demo-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123--pd "__UVISION_VERSION SETA 524" --pd "_RTE_ SETA 1" --pd "TM4C123GH6PM SETA 1"-o .\rvmdk\startup_rvmdk.o --depend .\rvmdk\startup_rvmdk.d)
+F (.\accelerometer_task.c)(0x59F1710B)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I . -I ..\FreeRTOS\Source\include -I ..\TI -I ..\TI\examples/boards\ek-tm4c123gxl -I ..\FreeRTOS\Source\portable\RVDS\ARM_CM4F --c99-I.\RTE\_freertos_demo-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\rvmdk\accelerometer_task.o --omf_browse .\rvmdk\accelerometer_task.crf --depend .\rvmdk\accelerometer_task.d)
+I (accelerometer_task.h)(0x59F169D3)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588C2C04)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
+I (./../ti/TivaWare_C_Series-2.1.4.178/inc/hw_memmap.h)(0x59E567CD)
+I (./../ti/TivaWare_C_Series-2.1.4.178/inc/hw_types.h)(0x59E567CD)
+I (./../ti/TivaWare_C_Series-2.1.4.178/driverlib/gpio.h)(0x59D77332)
+I (./../ti/TivaWare_C_Series-2.1.4.178/driverlib/rom.h)(0x5453992A)
+I (./../ti/TivaWare_C_Series-2.1.4.178/examples/boards/ek-tm4c123gxl/drivers/rgb.h)(0x59E567AF)
+I (./../ti/TivaWare_C_Series-2.1.4.178/examples/boards/ek-tm4c123gxl/drivers/buttons.h)(0x59E567AF)
+I (./../ti/TivaWare_C_Series-2.1.4.178/utils/uartstdio.h)(0x59E567E1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x588C2C04)
+I (led_task.h)(0x59BEEAD4)
+I (priorities.h)(0x59F1605C)
+I (..\FreeRTOS\Source\include\FreeRTOS.h)(0x573F3A16)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x588C2C04)
+I (.\FreeRTOSConfig.h)(0x59BEEAD4)
+I (..\FreeRTOS\Source\include\projdefs.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\portable.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\deprecated_definitions.h)(0x573F3A16)
+I (..\FreeRTOS\Source\portable\RVDS\ARM_CM4F\portmacro.h)(0x573F3A18)
+I (..\FreeRTOS\Source\include\mpu_wrappers.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\task.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\list.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\queue.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\semphr.h)(0x573F3A16)
+I (./../inc/tm4c123gh6pm.h)(0x54D0F112)
+I (BSP.h)(0x57E509EC)
+F (..\ti\TivaWare_C_Series-2.1.4.178\driverlib\driverlib.lib)(0x59E56790)()
+F (.\readme.txt)(0x59BEEAD4)()
+F (..\FreeRTOS\Source\tasks.c)(0x573F3A18)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I . -I ..\FreeRTOS\Source\include -I ..\TI -I ..\TI\examples/boards\ek-tm4c123gxl -I ..\FreeRTOS\Source\portable\RVDS\ARM_CM4F --c99-I.\RTE\_freertos_demo-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\rvmdk\tasks.o --omf_browse .\rvmdk\tasks.crf --depend .\rvmdk\tasks.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588C2C04)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588C2C04)
+I (..\FreeRTOS\Source\include\FreeRTOS.h)(0x573F3A16)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x588C2C04)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
+I (.\FreeRTOSConfig.h)(0x59BEEAD4)
+I (..\FreeRTOS\Source\include\projdefs.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\portable.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\deprecated_definitions.h)(0x573F3A16)
+I (..\FreeRTOS\Source\portable\RVDS\ARM_CM4F\portmacro.h)(0x573F3A18)
+I (..\FreeRTOS\Source\include\mpu_wrappers.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\task.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\list.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\timers.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\StackMacros.h)(0x573F3A16)
+F (..\FreeRTOS\Source\queue.c)(0x573F3A18)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I . -I ..\FreeRTOS\Source\include -I ..\TI -I ..\TI\examples/boards\ek-tm4c123gxl -I ..\FreeRTOS\Source\portable\RVDS\ARM_CM4F --c99-I.\RTE\_freertos_demo-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\rvmdk\queue.o --omf_browse .\rvmdk\queue.crf --depend .\rvmdk\queue.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588C2C04)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588C2C04)
+I (..\FreeRTOS\Source\include\FreeRTOS.h)(0x573F3A16)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x588C2C04)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
+I (.\FreeRTOSConfig.h)(0x59BEEAD4)
+I (..\FreeRTOS\Source\include\projdefs.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\portable.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\deprecated_definitions.h)(0x573F3A16)
+I (..\FreeRTOS\Source\portable\RVDS\ARM_CM4F\portmacro.h)(0x573F3A18)
+I (..\FreeRTOS\Source\include\mpu_wrappers.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\task.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\list.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\queue.h)(0x573F3A16)
+F (..\FreeRTOS\Source\portable\RVDS\ARM_CM4F\port.c)(0x573F3A18)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I . -I ..\FreeRTOS\Source\include -I ..\TI -I ..\TI\examples/boards\ek-tm4c123gxl -I ..\FreeRTOS\Source\portable\RVDS\ARM_CM4F --c99-I.\RTE\_freertos_demo-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\rvmdk\port.o --omf_browse .\rvmdk\port.crf --depend .\rvmdk\port.d)
+I (..\FreeRTOS\Source\include\FreeRTOS.h)(0x573F3A16)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x588C2C04)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
+I (.\FreeRTOSConfig.h)(0x59BEEAD4)
+I (..\FreeRTOS\Source\include\projdefs.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\portable.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\deprecated_definitions.h)(0x573F3A16)
+I (..\FreeRTOS\Source\portable\RVDS\ARM_CM4F\portmacro.h)(0x573F3A18)
+I (..\FreeRTOS\Source\include\mpu_wrappers.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\task.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\list.h)(0x573F3A16)
+F (..\FreeRTOS\Source\list.c)(0x573F3A16)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I . -I ..\FreeRTOS\Source\include -I ..\TI -I ..\TI\examples/boards\ek-tm4c123gxl -I ..\FreeRTOS\Source\portable\RVDS\ARM_CM4F --c99-I.\RTE\_freertos_demo-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\rvmdk\list.o --omf_browse .\rvmdk\list.crf --depend .\rvmdk\list.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588C2C04)
+I (..\FreeRTOS\Source\include\FreeRTOS.h)(0x573F3A16)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x588C2C04)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
+I (.\FreeRTOSConfig.h)(0x59BEEAD4)
+I (..\FreeRTOS\Source\include\projdefs.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\portable.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\deprecated_definitions.h)(0x573F3A16)
+I (..\FreeRTOS\Source\portable\RVDS\ARM_CM4F\portmacro.h)(0x573F3A18)
+I (..\FreeRTOS\Source\include\mpu_wrappers.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\list.h)(0x573F3A16)
+F (..\FreeRTOS\Source\portable\MemMang\heap_4.c)(0x573F3A16)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I . -I ..\FreeRTOS\Source\include -I ..\TI -I ..\TI\examples/boards\ek-tm4c123gxl -I ..\FreeRTOS\Source\portable\RVDS\ARM_CM4F --c99-I.\RTE\_freertos_demo-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\rvmdk\heap_4.o --omf_browse .\rvmdk\heap_4.crf --depend .\rvmdk\heap_4.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588C2C04)
+I (..\FreeRTOS\Source\include\FreeRTOS.h)(0x573F3A16)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x588C2C04)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
+I (.\FreeRTOSConfig.h)(0x59BEEAD4)
+I (..\FreeRTOS\Source\include\projdefs.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\portable.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\deprecated_definitions.h)(0x573F3A16)
+I (..\FreeRTOS\Source\portable\RVDS\ARM_CM4F\portmacro.h)(0x573F3A18)
+I (..\FreeRTOS\Source\include\mpu_wrappers.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\task.h)(0x573F3A16)
+I (..\FreeRTOS\Source\include\list.h)(0x573F3A16)
+F (..\ti\TivaWare_C_Series-2.1.4.178\examples\boards\ek-tm4c123gxl\drivers\buttons.c)(0x59EF9D64)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I . -I ..\FreeRTOS\Source\include -I ..\TI -I ..\TI\examples/boards\ek-tm4c123gxl -I ..\FreeRTOS\Source\portable\RVDS\ARM_CM4F --c99-I.\RTE\_freertos_demo-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\rvmdk\buttons.o --omf_browse .\rvmdk\buttons.crf --depend .\rvmdk\buttons.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588C2C04)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/inc/hw_types.h)(0x59E567CD)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/inc/hw_memmap.h)(0x59E567CD)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/inc/hw_gpio.h)(0x59E567CD)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/driverlib/sysctl.h)(0x5453992A)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/driverlib/rom.h)(0x5453992A)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/driverlib/rom_map.h)(0x5453992A)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/driverlib/pin_map.h)(0x5453A11A)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/driverlib/gpio.h)(0x59D77332)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/examples/boards/ek-tm4c123gxl/drivers/buttons.h)(0x59E567AF)
+F (..\ti\TivaWare_C_Series-2.1.4.178\examples\boards\ek-tm4c123gxl\drivers\rgb.c)(0x59EF9D74)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I . -I ..\FreeRTOS\Source\include -I ..\TI -I ..\TI\examples/boards\ek-tm4c123gxl -I ..\FreeRTOS\Source\portable\RVDS\ARM_CM4F --c99-I.\RTE\_freertos_demo-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\rvmdk\rgb.o --omf_browse .\rvmdk\rgb.crf --depend .\rvmdk\rgb.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588C2C04)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/inc/hw_types.h)(0x59E567CD)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/inc/hw_memmap.h)(0x59E567CD)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/inc/hw_timer.h)(0x59E567CD)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/inc/hw_ints.h)(0x5453992E)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/driverlib/sysctl.h)(0x5453992A)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/driverlib/rom.h)(0x5453992A)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/driverlib/rom_map.h)(0x5453992A)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/driverlib/pin_map.h)(0x5453A11A)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/driverlib/timer.h)(0x5453992A)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/driverlib/gpio.h)(0x59D77332)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/driverlib/interrupt.h)(0x5453992A)
+I (..\ti\TivaWare_C_Series-2.1.4.178\examples\boards\ek-tm4c123gxl\drivers\rgb.h)(0x59E567AF)
+F (..\ti\TivaWare_C_Series-2.1.4.178\utils\ustdlib.c)(0x59EF9D45)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I . -I ..\FreeRTOS\Source\include -I ..\TI -I ..\TI\examples/boards\ek-tm4c123gxl -I ..\FreeRTOS\Source\portable\RVDS\ARM_CM4F --c99-I.\RTE\_freertos_demo-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\rvmdk\ustdlib.o --omf_browse .\rvmdk\ustdlib.crf --depend .\rvmdk\ustdlib.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/driverlib/debug.h)(0x54539929)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/utils/ustdlib.h)(0x59E567E1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x588C2C04)
+I (C:\Keil_v5\ARM\ARMCC\include\time.h)(0x588C2C04)
+F (..\ti\TivaWare_C_Series-2.1.4.178\utils\uartstdio.c)(0x59EF9D9B)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I . -I ..\FreeRTOS\Source\include -I ..\TI -I ..\TI\examples/boards\ek-tm4c123gxl -I ..\FreeRTOS\Source\portable\RVDS\ARM_CM4F --c99-I.\RTE\_freertos_demo-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\rvmdk\uartstdio.o --omf_browse .\rvmdk\uartstdio.crf --depend .\rvmdk\uartstdio.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588C2C04)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x588C2C04)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/inc/hw_ints.h)(0x5453992E)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/inc/hw_memmap.h)(0x59E567CD)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/inc/hw_types.h)(0x59E567CD)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/inc/hw_uart.h)(0x59E567CD)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/driverlib/debug.h)(0x54539929)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/driverlib/interrupt.h)(0x5453992A)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/driverlib/rom.h)(0x5453992A)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/driverlib/rom_map.h)(0x5453992A)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/driverlib/sysctl.h)(0x5453992A)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/driverlib/uart.h)(0x5453992A)
+I (.\./../ti/TivaWare_C_Series-2.1.4.178/utils/uartstdio.h)(0x59E567E1)
