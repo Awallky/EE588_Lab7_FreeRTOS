@@ -183,61 +183,124 @@ LEDTask(void *pvParameters)
 	ui32WakeTime = xTaskGetTickCount();
 	
 	while(1){
-		WaitForInterrupt();
-		count = count + 1;
-		if(count == 10){
-			count = 0;
-			// print LED status
-			BSP_LCD_DrawString(0, 0, "Red=    ", BSP_LCD_Color565(255, 0, 0));
-			BSP_LCD_SetCursor(4, 0);
-			BSP_LCD_OutUDec((uint32_t)Red, BSP_LCD_Color565(255, 0, 0));
-			BSP_LCD_DrawString(0, 1, "Green=    ", BSP_LCD_Color565(0, 255, 0));
-			BSP_LCD_SetCursor(6, 1);
-			BSP_LCD_OutUDec((uint32_t)Green, BSP_LCD_Color565(0, 255, 0));
-			BSP_LCD_DrawString(0, 2, "Blue=    ", BSP_LCD_Color565(0, 0, 255));
-			BSP_LCD_SetCursor(5, 2);
-			BSP_LCD_OutUDec((uint32_t)Blue, BSP_LCD_Color565(0, 0, 255));
-			// print joystick status
-			BSP_LCD_DrawString(0, 3, "JoyX=    ", BSP_LCD_Color565(255, 255, 255));
-			BSP_LCD_SetCursor(5, 3);
-			BSP_LCD_OutUDec((uint32_t)JoyX, BSP_LCD_Color565(255, 0, 255));
-			BSP_LCD_DrawString(0, 4, "JoyY=    ", BSP_LCD_Color565(255, 255, 255));
-			BSP_LCD_SetCursor(5, 4);
-			BSP_LCD_OutUDec((uint32_t)JoyY, BSP_LCD_Color565(255, 0, 255));
-			// print accelerometer status
-			BSP_LCD_DrawString(0, 5, "AccX=    ", BSP_LCD_Color565(255, 255, 255));
-			BSP_LCD_SetCursor(5, 5);
-			BSP_LCD_OutUDec((uint32_t)AccX, BSP_LCD_Color565(255, 0, 255));
-			BSP_LCD_DrawString(0, 6, "AccY=    ", BSP_LCD_Color565(255, 255, 255));
-			BSP_LCD_SetCursor(5, 6);
-			BSP_LCD_OutUDec((uint32_t)AccY, BSP_LCD_Color565(255, 0, 255));
-			BSP_LCD_DrawString(0, 7, "AccZ=    ", BSP_LCD_Color565(255, 255, 255));
-			BSP_LCD_SetCursor(5, 7);
-			BSP_LCD_OutUDec((uint32_t)AccZ, BSP_LCD_Color565(255, 0, 255));
-		
-			// print the time
-			time = BSP_Time_Get(); // in usec
-			color = LCD_LIGHTGREEN;
-			BSP_LCD_DrawString(0, 11, "Time=  :  .      ", BSP_LCD_Color565(255, 255, 255));
-			BSP_LCD_SetCursor(7-numlength(time/60000000), 11);
-			BSP_LCD_OutUDec(time/60000000, color);
-			BSP_LCD_SetCursor(8, 11);
-			if(numlength((time%60000000)/1000000) == 1){
-				// print a leading zero, which BSP_LCD_OutUDec() does not do automatically
-				// so 1/60 prints as ":01" instead of ":1 "
-				BSP_LCD_OutUDec(0, color);
-			}
-			BSP_LCD_OutUDec((time%60000000)/1000000, color);
-			BSP_LCD_SetCursor(11, 11);
-			for(i=numlength(time%1000000); i<6; i=i+1){
-				// print any leading zeroes, which BSP_LCD_OutUDec() does not do automatically
-				// so 1/1,000,000 prints as ":000001" instead of ".1 "
-				BSP_LCD_OutUDec(0, color);
-			}
-			BSP_LCD_OutUDec(time%1000000, color);
-		}
+			//
+			// Read the next message, if available on queue.
+			//
+			if(xQueueReceive(g_pLEDQueue, &i8Message, 0) == pdPASS)
+			{
+					//
+					// If left button, update to next LED.
+					//
+					if(i8Message == LEFT_BUTTON)
+					{
+							//
+							// Update the LED buffer to turn off the currently working.
+							//
+							g_pui32Colors[g_ui8ColorsIndx] = 0x0000;
+
+							//
+							// Update the index to next LED
+							g_ui8ColorsIndx++;
+							if(g_ui8ColorsIndx > 2)
+							{
+									g_ui8ColorsIndx = 0;
+							}
+
+							//
+							// Update the LED buffer to turn on the newly selected LED.
+							//
+							g_pui32Colors[g_ui8ColorsIndx] = 0x8000;
+
+							//
+							// Configure the new LED settings.
+							//
+							RGBColorSet(g_pui32Colors);
+
+							//
+							// Guard UART from concurrent access. Print the currently
+							// blinking LED.
+							//
+							xSemaphoreTake(g_pUARTSemaphore, portMAX_DELAY);
+							UARTprintf("Led %d is blinking. [R, G, B]\n", g_ui8ColorsIndx);
+							xSemaphoreGive(g_pUARTSemaphore);
+					}
+
+					//
+					// If right button, update delay time between toggles of led.
+					//
+					if(i8Message == RIGHT_BUTTON)
+					{
+							ui32LEDToggleDelay *= 2;
+							if(ui32LEDToggleDelay > 1000)
+							{
+									ui32LEDToggleDelay = LED_TOGGLE_DELAY / 2;
+							}
+
+							//
+							// Guard UART from concurrent access. Print the currently
+							// blinking frequency.
+							//
+							xSemaphoreTake(g_pUARTSemaphore, portMAX_DELAY);
+							UARTprintf("Led blinking frequency is %d ms.\n",
+												 (ui32LEDToggleDelay * 2));
+							xSemaphoreGive(g_pUARTSemaphore);
+					}
+			} // if(xQueueReceive(g_pLEDQueue, &i8Message, 0) == pdPASS)
+			//*****************************************************************************
+			//
+			// VALVANO's BSP MDKII BOOSTER DEMO
+			//
+			//*****************************************************************************		
+//			count = 0;
+//			// print LED status
+//			BSP_LCD_DrawString(0, 0, "Red=    ", BSP_LCD_Color565(255, 0, 0));
+//			BSP_LCD_SetCursor(4, 0);
+//			BSP_LCD_OutUDec((uint32_t)Red, BSP_LCD_Color565(255, 0, 0));
+//			BSP_LCD_DrawString(0, 1, "Green=    ", BSP_LCD_Color565(0, 255, 0));
+//			BSP_LCD_SetCursor(6, 1);
+//			BSP_LCD_OutUDec((uint32_t)Green, BSP_LCD_Color565(0, 255, 0));
+//			BSP_LCD_DrawString(0, 2, "Blue=    ", BSP_LCD_Color565(0, 0, 255));
+//			BSP_LCD_SetCursor(5, 2);
+//			BSP_LCD_OutUDec((uint32_t)Blue, BSP_LCD_Color565(0, 0, 255));
+//			// print joystick status
+//			BSP_LCD_DrawString(0, 3, "JoyX=    ", BSP_LCD_Color565(255, 255, 255));
+//			BSP_LCD_SetCursor(5, 3);
+//			BSP_LCD_OutUDec((uint32_t)JoyX, BSP_LCD_Color565(255, 0, 255));
+//			BSP_LCD_DrawString(0, 4, "JoyY=    ", BSP_LCD_Color565(255, 255, 255));
+//			BSP_LCD_SetCursor(5, 4);
+//			BSP_LCD_OutUDec((uint32_t)JoyY, BSP_LCD_Color565(255, 0, 255));
+//			// print accelerometer status
+//			BSP_LCD_DrawString(0, 5, "AccX=    ", BSP_LCD_Color565(255, 255, 255));
+//			BSP_LCD_SetCursor(5, 5);
+//			BSP_LCD_OutUDec((uint32_t)AccX, BSP_LCD_Color565(255, 0, 255));
+//			BSP_LCD_DrawString(0, 6, "AccY=    ", BSP_LCD_Color565(255, 255, 255));
+//			BSP_LCD_SetCursor(5, 6);
+//			BSP_LCD_OutUDec((uint32_t)AccY, BSP_LCD_Color565(255, 0, 255));
+//			BSP_LCD_DrawString(0, 7, "AccZ=    ", BSP_LCD_Color565(255, 255, 255));
+//			BSP_LCD_SetCursor(5, 7);
+//			BSP_LCD_OutUDec((uint32_t)AccZ, BSP_LCD_Color565(255, 0, 255));
+//		
+//			// print the time
+//			time = BSP_Time_Get(); // in usec
+//			color = LCD_LIGHTGREEN;
+//			BSP_LCD_DrawString(0, 11, "Time=  :  .      ", BSP_LCD_Color565(255, 255, 255));
+//			BSP_LCD_SetCursor(7-numlength(time/60000000), 11);
+//			BSP_LCD_OutUDec(time/60000000, color);
+//			BSP_LCD_SetCursor(8, 11);
+//			if(numlength((time%60000000)/1000000) == 1){
+//				// print a leading zero, which BSP_LCD_OutUDec() does not do automatically
+//				// so 1/60 prints as ":01" instead of ":1 "
+//				BSP_LCD_OutUDec(0, color);
+//			}
+//			BSP_LCD_OutUDec((time%60000000)/1000000, color);
+//			BSP_LCD_SetCursor(11, 11);
+//			for(i=numlength(time%1000000); i<6; i=i+1){
+//				// print any leading zeroes, which BSP_LCD_OutUDec() does not do automatically
+//				// so 1/1,000,000 prints as ":000001" instead of ".1 "
+//				BSP_LCD_OutUDec(0, color);
+//			}
+//			BSP_LCD_OutUDec(time%1000000, color);
 	}
-	
 }
 
 
@@ -249,12 +312,12 @@ LEDTask(void *pvParameters)
 uint32_t
 LEDTaskInit(void)
 {	
-	BSP_RGB_Init(0, 0, 0);
-	BSP_Buzzer_Init(0);	
-	BSP_PeriodicTask_Init(&checkbuttons, 10, 2);
-	BSP_Time_Init();
-	BSP_LCD_Init();
-	BSP_LCD_FillScreen(BSP_LCD_Color565(0, 0, 0));
+	//BSP_RGB_Init(0, 0, 0);
+	//BSP_Buzzer_Init(0);	
+	//BSP_PeriodicTask_Init(&checkbuttons, 10, 2);
+	//BSP_Time_Init();
+	//BSP_LCD_Init();
+	//BSP_LCD_FillScreen(BSP_LCD_Color565(0, 0, 0));
 	
 	//
 	// Initialize the GPIOs and Timers that drive the three LEDs.
@@ -273,7 +336,7 @@ LEDTaskInit(void)
 	// Print the current loggling LED and frequency.
 	//
 	UARTprintf("\nLed %d is blinking. [R, G, B]\n", g_ui8ColorsIndx);
-	URTprintf("Led blinking frequency is %d ms.\n", (LED_TOGGLE_DELAY * 2));
+	UARTprintf("Led blinking frequency is %d ms.\n", (LED_TOGGLE_DELAY * 2));
 	
 	//
 	// Create a queue for sending messages to the LED task.

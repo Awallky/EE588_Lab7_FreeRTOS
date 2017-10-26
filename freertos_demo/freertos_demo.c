@@ -234,16 +234,16 @@ main(void)
         }
     }
 		
-		//
-    // Create the switch task.
-    //
-    if(Accelerometer_Init() != 0)
-    {
+//		//
+//    // Create the switch task.
+//    //
+//    if(Accelerometer_Init() != 0)
+//    {
 
-        while(1)
-        {
-        }
-    }
+//        while(1)
+//        {
+//        }
+//    }
 		
 		//EnableInterrupts();
     //
