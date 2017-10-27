@@ -20,7 +20,10 @@ xQueueHandle g_pACCELEROMETERQueue;
 #define SW1_BUBBLE_MODE 1
 #define SW2_UNLOCKED		0
 #define SW2_LOCKED			1
+#define MKII_SW1				0x30
+#define MKII_SW2				0x40
 extern uint8_t sw1_mode, sw2_mode;
+extern uint16_t AccX, AccY, AccZ;
 extern xSemaphoreHandle g_pUARTSemaphore;
 
 //*****************************************************************************
@@ -58,8 +61,9 @@ AccelerometerTask(void *pvParameters)
 			RGBDisable();
 			xSemaphoreTake(g_pUARTSemaphore, portMAX_DELAY);
 			UARTprintf("In the Accelerometer Task\n");
+			BSP_Accelerometer_Input(&AccX, &AccY, &AccZ);
 			xSemaphoreGive(g_pUARTSemaphore);
-
+			
 			//
 			// Wait for the required amount of time.
 			//
@@ -81,8 +85,6 @@ AccelerometerTaskInit(void)
     UARTprintf("\nInitializing the Accelerometer\n");
 	
 		BSP_Accelerometer_Init();
-		BSP_LCD_Init();
-		BSP_LCD_FillScreen(BSP_LCD_Color565(0, 0, 0));
 
     //
     // Create a queue for sending messages to the LED task.

@@ -37,12 +37,19 @@
 #include "task.h"
 #include "queue.h"
 #include "semphr.h"
+#include "BSP.h"
 
 #define SW1_TEXT_MODE 	0
 #define SW1_BUBBLE_MODE 1
 #define SW2_UNLOCKED		0
 #define SW2_LOCKED			1
+#define ACCEL_READ			0x08
+#define MKII_SW1				0x30
+#define MKII_SW2				0x40
 extern uint8_t sw1_mode, sw2_mode;
+extern uint16_t Red, Green, Blue;
+extern uint16_t JoyX, JoyY;
+extern uint16_t AccX, AccY, AccZ;
 
 //*****************************************************************************
 //
@@ -116,7 +123,7 @@ LEDTask(void *pvParameters)
         if(xQueueReceive(g_pLEDQueue, &i8Message, 0) == pdPASS)
         {
             //
-            // If left button, update to next LED.
+            // If left button (ON TM4C), update to next LED.
             //
             if(i8Message == LEFT_BUTTON)
             {
@@ -172,6 +179,30 @@ LEDTask(void *pvParameters)
                            (ui32LEDToggleDelay * 2));
                 xSemaphoreGive(g_pUARTSemaphore);
             }
+						
+						if(i8Message == MKII_SW1){
+							
+						}
+						
+						if(i8Message == MKII_SW2){
+							
+						}
+						
+						//
+						// If a message from the Accelerometer, update the display on the MDII Board
+						//
+//						if(i8Message == ACCEL_READ){
+//							// print accelerometer status
+//							BSP_LCD_DrawString(0, 5, "AccX=    ", BSP_LCD_Color565(255, 255, 255));
+//							BSP_LCD_SetCursor(5, 5);
+//							BSP_LCD_OutUDec((uint32_t)AccX, BSP_LCD_Color565(255, 0, 255));
+//							BSP_LCD_DrawString(0, 6, "AccY=    ", BSP_LCD_Color565(255, 255, 255));
+//							BSP_LCD_SetCursor(5, 6);
+//							BSP_LCD_OutUDec((uint32_t)AccY, BSP_LCD_Color565(255, 0, 255));
+//							BSP_LCD_DrawString(0, 7, "AccZ=    ", BSP_LCD_Color565(255, 255, 255));
+//							BSP_LCD_SetCursor(5, 7);
+//							BSP_LCD_OutUDec((uint32_t)AccZ, BSP_LCD_Color565(255, 0, 255));
+//						}
         }
 
         //
@@ -216,6 +247,12 @@ LEDTaskInit(void)
     g_ui8ColorsIndx = 0;
     g_pui32Colors[g_ui8ColorsIndx] = 0x8000;
     RGBColorSet(g_pui32Colors);
+	
+		//
+		// BSP Pins Init
+		//
+		BSP_LCD_Init();
+		BSP_LCD_FillScreen(BSP_LCD_Color565(0, 0, 0));
 
     //
     // Print the current loggling LED and frequency.

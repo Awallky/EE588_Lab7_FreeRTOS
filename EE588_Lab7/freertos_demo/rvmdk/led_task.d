@@ -23,3 +23,4 @@
 .\rvmdk\led_task.o: ..\FreeRTOS\Source\include\list.h
 .\rvmdk\led_task.o: ..\FreeRTOS\Source\include\queue.h
 .\rvmdk\led_task.o: ..\FreeRTOS\Source\include\semphr.h
+.\rvmdk\led_task.o: BSP.h

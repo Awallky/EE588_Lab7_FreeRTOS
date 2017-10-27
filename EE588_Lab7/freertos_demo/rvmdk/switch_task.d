@@ -25,3 +25,4 @@
 .\rvmdk\switch_task.o: ..\FreeRTOS\Source\include\list.h
 .\rvmdk\switch_task.o: ..\FreeRTOS\Source\include\queue.h
 .\rvmdk\switch_task.o: ..\FreeRTOS\Source\include\semphr.h
+.\rvmdk\switch_task.o: BSP.h
