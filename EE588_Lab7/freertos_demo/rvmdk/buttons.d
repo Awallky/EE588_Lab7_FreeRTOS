@@ -1,0 +1,12 @@
+.\rvmdk\buttons.o: ..\include\drivers\buttons.c
+.\rvmdk\buttons.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\rvmdk\buttons.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\rvmdk\buttons.o: ..\include\drivers\./../inc/hw_types.h
+.\rvmdk\buttons.o: ..\include\drivers\./../inc/hw_memmap.h
+.\rvmdk\buttons.o: ..\include\drivers\./../inc/hw_gpio.h
+.\rvmdk\buttons.o: ..\include\drivers\./../driverlib/sysctl.h
+.\rvmdk\buttons.o: ..\include\drivers\./../driverlib/rom.h
+.\rvmdk\buttons.o: ..\include\drivers\./../driverlib/rom_map.h
+.\rvmdk\buttons.o: ..\include\drivers\./../driverlib/pin_map.h
+.\rvmdk\buttons.o: ..\include\drivers\./../driverlib/gpio.h
+.\rvmdk\buttons.o: ..\include\drivers\./../drivers/buttons.h

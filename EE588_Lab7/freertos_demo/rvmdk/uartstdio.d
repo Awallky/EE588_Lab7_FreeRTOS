@@ -1,0 +1,15 @@
+.\rvmdk\uartstdio.o: ..\include\utils\uartstdio.c
+.\rvmdk\uartstdio.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\rvmdk\uartstdio.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\rvmdk\uartstdio.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\rvmdk\uartstdio.o: ..\include\utils\./../inc/hw_ints.h
+.\rvmdk\uartstdio.o: ..\include\utils\./../inc/hw_memmap.h
+.\rvmdk\uartstdio.o: ..\include\utils\./../inc/hw_types.h
+.\rvmdk\uartstdio.o: ..\include\utils\./../inc/hw_uart.h
+.\rvmdk\uartstdio.o: ..\include\utils\./../driverlib/debug.h
+.\rvmdk\uartstdio.o: ..\include\utils\./../driverlib/interrupt.h
+.\rvmdk\uartstdio.o: ..\include\utils\./../driverlib/rom.h
+.\rvmdk\uartstdio.o: ..\include\utils\./../driverlib/rom_map.h
+.\rvmdk\uartstdio.o: ..\include\utils\./../driverlib/sysctl.h
+.\rvmdk\uartstdio.o: ..\include\utils\./../driverlib/uart.h
+.\rvmdk\uartstdio.o: ..\include\utils\./../utils/uartstdio.h

@@ -101,7 +101,6 @@ void WaitForInterrupt(void);  // low power mode
 uint16_t Red = 0, Green = 0, Blue = 0;
 uint16_t JoyX, JoyY;
 uint16_t AccX, AccY, AccZ;
-
 void checkbuttons(void){
   static uint8_t prev1 = 0, prev2 = 0, prevS = 0; // previous values
   static uint8_t mode = 0;
@@ -149,7 +148,6 @@ void checkbuttons(void){
       Red = 0; Green = 0; Blue = 500;
     }
   } else{
-			;
   }
   BSP_RGB_Set(Red, Green, Blue);
 }
@@ -173,35 +171,25 @@ int main(void){
   uint32_t light, i, time;
   int32_t voltage, temperature;
   int count = 0;
-	
-	// System Init
   DisableInterrupts();
   BSP_Clock_InitFastest();
-	
-	// Board/Input Init
   BSP_Button1_Init();
   BSP_Button2_Init();
   BSP_Joystick_Init();
-	
   BSP_RGB_Init(0, 0, 0);
-  BSP_Buzzer_Init(0);	
+  BSP_Buzzer_Init(0);
   BSP_Accelerometer_Init();
   BSP_PeriodicTask_Init(&checkbuttons, 10, 2);
   BSP_Time_Init();
   BSP_LCD_Init();
   BSP_LCD_FillScreen(BSP_LCD_Color565(0, 0, 0));
-	
-  //BSP_LightSensor_Init();
-  //light = BSP_LightSensor_Input();
-  //BSP_LightSensor_Start();
-  //BSP_TempSensor_Init();
-  //BSP_TempSensor_Input(&voltage, &temperature);
-  //BSP_TempSensor_Start();
-	
+  BSP_LightSensor_Init();
+  light = BSP_LightSensor_Input();
+  BSP_LightSensor_Start();
+  BSP_TempSensor_Init();
+  BSP_TempSensor_Input(&voltage, &temperature);
+  BSP_TempSensor_Start();
   EnableInterrupts();
-	// End System Init
-	
-	// 
   while(1){
     WaitForInterrupt();
     count = count + 1;
