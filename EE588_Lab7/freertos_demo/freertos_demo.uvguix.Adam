@@ -3517,17 +3517,17 @@
       <Doc>
         <Name>.\freertos_demo.c</Name>
         <ColumnNumber>0</ColumnNumber>
-        <TopLine>146</TopLine>
-        <CurrentLine>171</CurrentLine>
+        <TopLine>54</TopLine>
+        <CurrentLine>56</CurrentLine>
         <Folding>1</Folding>
-        <ContractedFolders>95,115,133</ContractedFolders>
+        <ContractedFolders>97,117,135</ContractedFolders>
         <PaneID>0</PaneID>
       </Doc>
       <Doc>
         <Name>.\led_task.c</Name>
-        <ColumnNumber>41</ColumnNumber>
-        <TopLine>133</TopLine>
-        <CurrentLine>154</CurrentLine>
+        <ColumnNumber>20</ColumnNumber>
+        <TopLine>162</TopLine>
+        <CurrentLine>187</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
@@ -3535,17 +3535,17 @@
       <Doc>
         <Name>.\switch_task.c</Name>
         <ColumnNumber>0</ColumnNumber>
-        <TopLine>98</TopLine>
-        <CurrentLine>99</CurrentLine>
+        <TopLine>158</TopLine>
+        <CurrentLine>218</CurrentLine>
         <Folding>1</Folding>
-        <ContractedFolders>166</ContractedFolders>
+        <ContractedFolders>132</ContractedFolders>
         <PaneID>0</PaneID>
       </Doc>
       <Doc>
         <Name>.\accelerometer_task.c</Name>
-        <ColumnNumber>48</ColumnNumber>
-        <TopLine>54</TopLine>
-        <CurrentLine>79</CurrentLine>
+        <ColumnNumber>13</ColumnNumber>
+        <TopLine>51</TopLine>
+        <CurrentLine>59</CurrentLine>
         <Folding>0</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>

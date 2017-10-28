@@ -1,5 +1,5 @@
 Dependencies for Project 'freertos_demo', Target 'freertos_demo': (DO NOT MODIFY !)
-F (.\freertos_demo.c)(0x59F3D73E)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I . -I ..\FreeRTOS\Source\include -I ..\TI -I ..\TI\examples/boards\ek-tm4c123gxl -I ..\FreeRTOS\Source\portable\RVDS\ARM_CM4F --c99-I.\RTE\_freertos_demo-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\rvmdk\freertos_demo.o --omf_browse .\rvmdk\freertos_demo.crf --depend .\rvmdk\freertos_demo.d)
+F (.\freertos_demo.c)(0x59F3FBBC)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I . -I ..\FreeRTOS\Source\include -I ..\TI -I ..\TI\examples/boards\ek-tm4c123gxl -I ..\FreeRTOS\Source\portable\RVDS\ARM_CM4F --c99-I.\RTE\_freertos_demo-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\rvmdk\freertos_demo.o --omf_browse .\rvmdk\freertos_demo.crf --depend .\rvmdk\freertos_demo.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588C2C04)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
 I (./../include/inc/hw_memmap.h)(0x59A0921C)
@@ -30,7 +30,7 @@ I (accelerometer_task.h)(0x59F273ED)
 I (./../include/drivers/rgb.h)(0x59E567AF)
 I (./../include/drivers/buttons.h)(0x59E567AF)
 I (priorities.h)(0x59F2715D)
-F (.\led_task.c)(0x59F3E82F)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I . -I ..\FreeRTOS\Source\include -I ..\TI -I ..\TI\examples/boards\ek-tm4c123gxl -I ..\FreeRTOS\Source\portable\RVDS\ARM_CM4F --c99-I.\RTE\_freertos_demo-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\rvmdk\led_task.o --omf_browse .\rvmdk\led_task.crf --depend .\rvmdk\led_task.d)
+F (.\led_task.c)(0x59F3FE16)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I . -I ..\FreeRTOS\Source\include -I ..\TI -I ..\TI\examples/boards\ek-tm4c123gxl -I ..\FreeRTOS\Source\portable\RVDS\ARM_CM4F --c99-I.\RTE\_freertos_demo-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\rvmdk\led_task.o --omf_browse .\rvmdk\led_task.crf --depend .\rvmdk\led_task.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588C2C04)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
 I (./../include/inc/hw_memmap.h)(0x59A0921C)
@@ -57,7 +57,7 @@ I (..\FreeRTOS\Source\include\queue.h)(0x573F3A16)
 I (..\FreeRTOS\Source\include\semphr.h)(0x573F3A16)
 I (BSP.h)(0x59F26048)
 F (.\startup_rvmdk.S)(0x59F26E4D)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_freertos_demo-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123--pd "__UVISION_VERSION SETA 524" --pd "_RTE_ SETA 1" --pd "TM4C123GH6PM SETA 1"-o .\rvmdk\startup_rvmdk.o --depend .\rvmdk\startup_rvmdk.d)
-F (.\switch_task.c)(0x59F3E592)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I . -I ..\FreeRTOS\Source\include -I ..\TI -I ..\TI\examples/boards\ek-tm4c123gxl -I ..\FreeRTOS\Source\portable\RVDS\ARM_CM4F --c99-I.\RTE\_freertos_demo-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\rvmdk\switch_task.o --omf_browse .\rvmdk\switch_task.crf --depend .\rvmdk\switch_task.d)
+F (.\switch_task.c)(0x59F3FDB2)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I . -I ..\FreeRTOS\Source\include -I ..\TI -I ..\TI\examples/boards\ek-tm4c123gxl -I ..\FreeRTOS\Source\portable\RVDS\ARM_CM4F --c99-I.\RTE\_freertos_demo-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\rvmdk\switch_task.o --omf_browse .\rvmdk\switch_task.crf --depend .\rvmdk\switch_task.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588C2C04)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
 I (./../include/inc/hw_memmap.h)(0x59A0921C)
@@ -89,7 +89,7 @@ F (.\BSP.c)(0x59F26DDD)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apc
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
 I (BSP.h)(0x59F26048)
 I (./../include/tm4c123gh6pm.h)(0x54D0F112)
-F (.\accelerometer_task.c)(0x59F3E491)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I . -I ..\FreeRTOS\Source\include -I ..\TI -I ..\TI\examples/boards\ek-tm4c123gxl -I ..\FreeRTOS\Source\portable\RVDS\ARM_CM4F --c99-I.\RTE\_freertos_demo-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\rvmdk\accelerometer_task.o --omf_browse .\rvmdk\accelerometer_task.crf --depend .\rvmdk\accelerometer_task.d)
+F (.\accelerometer_task.c)(0x59F3F667)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I . -I ..\FreeRTOS\Source\include -I ..\TI -I ..\TI\examples/boards\ek-tm4c123gxl -I ..\FreeRTOS\Source\portable\RVDS\ARM_CM4F --c99-I.\RTE\_freertos_demo-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\rvmdk\accelerometer_task.o --omf_browse .\rvmdk\accelerometer_task.crf --depend .\rvmdk\accelerometer_task.d)
 I (accelerometer_task.h)(0x59F273ED)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588C2C04)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)

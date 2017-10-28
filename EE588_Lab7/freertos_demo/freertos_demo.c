@@ -52,6 +52,8 @@
 #define MKII_SW1				0x30
 #define MKII_SW2				0x40
 uint8_t sw1_mode, sw2_mode;
+uint8_t store_prev_accel, prev_accel_stored, need_to_print;
+uint8_t just_unlocked;
 
 //*****************************************************************************
 //
@@ -173,7 +175,7 @@ main(void)
 		prev_AccX = 0;
 		prev_AccY = 0;
 		prev_AccZ = 0;
-	
+		just_unlocked = 0;
     //
     // Set the clocking to run at 50 MHz from the PLL.
     //

@@ -48,12 +48,14 @@
 #define MKII_SW2				0x40
 
 extern uint8_t sw1_mode, sw2_mode;
+extern uint8_t just_unlocked;
 extern uint16_t Red, Green, Blue;
 extern uint16_t JoyX, JoyY;
 extern uint16_t AccX, AccY, AccZ;
 extern uint16_t prev_AccX, prev_AccY, prev_AccZ;
 extern uint8_t current;
 extern xSemaphoreHandle g_pAccelerometerSemaphore, g_pModeSemaphore;
+
 
 void DisableInterrupts(void); // Disable interrupts
 void EnableInterrupts(void);  // Enable interrupts
@@ -155,16 +157,35 @@ LEDTask(void *pvParameters)
 									BSP_LCD_SetCursor(5, 8);
 								}
 								else if(sw2_mode == SW2_LOCKED){
-									// print accelerometer status									
-									BSP_LCD_DrawString(0, 5, "AccX=    ", BSP_LCD_Color565(255, 255, 255));
-									BSP_LCD_SetCursor(5, 5);
-									BSP_LCD_OutUDec((uint32_t)(prev_AccX), BSP_LCD_Color565(255, 0, 255));
-									BSP_LCD_DrawString(0, 6, "AccY=    ", BSP_LCD_Color565(255, 255, 255));
-									BSP_LCD_SetCursor(5, 6);
-									BSP_LCD_OutUDec((uint32_t)(prev_AccY), BSP_LCD_Color565(255, 0, 255));
-									BSP_LCD_DrawString(0, 7, "AccZ=    ", BSP_LCD_Color565(255, 255, 255));
-									BSP_LCD_SetCursor(5, 7);
-									BSP_LCD_OutUDec((uint32_t)(prev_AccZ), BSP_LCD_Color565(255, 0, 255));
+									if( just_unlocked ){
+										just_unlocked = 0; // clear flag
+										// print accelerometer status									
+										BSP_LCD_DrawString(0, 5, "AccX-prev_AccX=    ", BSP_LCD_Color565(255, 255, 255));
+										BSP_LCD_SetCursor(5, 5);
+										BSP_LCD_OutUDec((uint32_t)(AccX-prev_AccX), BSP_LCD_Color565(255, 0, 255));
+										BSP_LCD_DrawString(0, 6, "AccY-prev_AccY=    ", BSP_LCD_Color565(255, 255, 255));
+										BSP_LCD_SetCursor(5, 6);
+										BSP_LCD_OutUDec((uint32_t)(AccY-prev_AccY), BSP_LCD_Color565(255, 0, 255));
+										BSP_LCD_DrawString(0, 7, "AccZ-prev_AccZ=    ", BSP_LCD_Color565(255, 255, 255));
+										BSP_LCD_SetCursor(5, 7);
+										BSP_LCD_OutUDec((uint32_t)(AccZ-prev_AccZ), BSP_LCD_Color565(255, 0, 255));
+										BSP_LCD_DrawString(0, 8, "We really out here!", BSP_LCD_Color565(255, 255, 255));
+										BSP_LCD_SetCursor(5, 8);
+									}
+									else{
+										// print accelerometer status									
+										BSP_LCD_DrawString(0, 5, "lock_AccX=    ", BSP_LCD_Color565(255, 255, 255));
+										BSP_LCD_SetCursor(10, 5);
+										BSP_LCD_OutUDec((uint32_t)(prev_AccX), BSP_LCD_Color565(255, 0, 255));
+										BSP_LCD_DrawString(0, 6, "lock_AccY=    ", BSP_LCD_Color565(255, 255, 255));
+										BSP_LCD_SetCursor(10, 6);
+										BSP_LCD_OutUDec((uint32_t)(prev_AccY), BSP_LCD_Color565(255, 0, 255));
+										BSP_LCD_DrawString(0, 7, "lock_AccZ=    ", BSP_LCD_Color565(255, 255, 255));
+										BSP_LCD_SetCursor(10, 7);
+										BSP_LCD_OutUDec((uint32_t)(prev_AccZ), BSP_LCD_Color565(255, 0, 255));
+										BSP_LCD_DrawString(0, 8, "We really out here!", BSP_LCD_Color565(255, 255, 255));
+										BSP_LCD_SetCursor(5, 8);
+									}
 								}
 							}
 							else if(sw1_mode == SW1_BUBBLE_MODE){

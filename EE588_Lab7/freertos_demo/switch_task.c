@@ -59,6 +59,7 @@ extern uint16_t JoyX, JoyY;
 extern uint16_t AccX, AccY, AccZ;
 extern uint16_t prev_AccX, prev_AccY, prev_AccZ;
 extern uint8_t current;
+extern uint8_t just_unlocked;
 
 extern xQueueHandle g_pLEDQueue, g_pAccelerometerQueue;
 extern xSemaphoreHandle g_pUARTSemaphore;
@@ -165,8 +166,10 @@ SwitchTaskInit(void)
 }
 
 void poll_MDKII(uint8_t *prev_button1, uint8_t *prev_button2){
-	//BSP_Joystick_Input(&JoyX, &JoyY, &current);
 	current = BSP_Button1_Input();	
+	//
+	// Check to see if the button is pressed
+	//
 	if(!current){
 		sw1_mode = !sw1_mode;
 		//
@@ -186,8 +189,14 @@ void poll_MDKII(uint8_t *prev_button1, uint8_t *prev_button2){
 		}		
 	}
 	current = BSP_Button2_Input();
+	//
+	// Check to see if the button is pressed
+	//
 	if(!current){
 		sw2_mode = !sw2_mode;
+		if( sw2_mode == SW2_UNLOCKED ){
+			just_unlocked = 1;
+		}
 		//
 		// Guard UART from concurrent access.
 		//

@@ -23,6 +23,7 @@ xQueueHandle g_pACCELEROMETERQueue;
 #define MKII_SW1				0x30
 #define MKII_SW2				0x40
 extern uint8_t sw1_mode, sw2_mode;
+extern uint8_t store_prev_accel, prev_accel_stored, need_to_print;
 extern uint16_t Red, Green, Blue;
 extern uint16_t JoyX, JoyY;
 extern uint16_t AccX, AccY, AccZ;
@@ -71,6 +72,12 @@ AccelerometerTask(void *pvParameters)
 			
 			xSemaphoreTake(g_pAccelerometerSemaphore, portMAX_DELAY);
 			BSP_Accelerometer_Input(&AccX, &AccY, &AccZ);
+			if( store_prev_accel ){
+				store_prev_accel = 0;
+				prev_AccX = AccX;
+				prev_AccY = AccY;
+				prev_AccZ = AccZ;
+			}
 			xSemaphoreGive(g_pAccelerometerSemaphore);
 			
 			//
