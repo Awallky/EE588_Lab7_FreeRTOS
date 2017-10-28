@@ -21,20 +21,19 @@ Target DLL:      lmidk-agdi.dll V???
 Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
-C:\Users\Adam\Dropbox\school\FALL_2017\EE588 (RTOS)\Labs\Module7\EE588_Lab7\freertos_demo\freertos_demo.uvprojx
-Project File Date:  10/26/2017
+C:\Users\Adam\Dropbox\school\FALL_2017\EE588 (RTOS)\Labs\Module7\BoardSupportPackage_4C123\BoardSupportPackage.uvprojx
+Project File Date:  10/27/2017
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
-Build target 'freertos_demo'
-compiling led_task.c...
-led_task.c(96): warning:  #177-D: variable "g_pui32Colors"  was declared but never referenced
-  static uint32_t g_pui32Colors[3] = { 0x0000, 0x0000, 0x0000 };
-led_task.c: 1 warning, 0 errors
+Rebuild target 'BoardSupportPackage'
+assembling startup_TM4C123.s...
+compiling BSPTestMain.c...
+compiling system_TM4C123.c...
+compiling BSP.c...
 linking...
-Program Size: Code=9328 RO-data=1484 RW-data=196 ZI-data=30948  
-After Build - User command #1: fromelf --bin --output .\rvmdk\freertos_demo.bin .\rvmdk\freertos_demo.axf
-".\rvmdk\freertos_demo.axf" - 0 Error(s), 1 Warning(s).
+Program Size: Code=8704 RO-data=2056 RW-data=88 ZI-data=624  
+".\Objects\BoardSupportPackage.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -48,16 +47,22 @@ Package Vendor: Keil
                 http://www.keil.com/pack/Keil.TM4C_DFP.1.1.0.pack
                 Keil.TM4C_DFP.1.1.0
                 Texas Instruments Tiva C Series Device Support and Examples
+   * Component: Startup Version: 1.0.1
 
 <h2>Collection of Component include folders:</h2>
-  .\RTE\_freertos_demo
+  .\RTE\_BoardSupportPackage
   C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include
   C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123
 
 <h2>Collection of Component Files used:</h2>
 
+   * Component: Keil::Device:Startup:1.0.1
+      Include file:  Device\Include\TM4C123\TM4C123.h
+      Source file:   Device\Source\ARM\startup_TM4C123.s
+      Source file:   Device\Source\system_TM4C123.c
+
    * Component: ARM::CMSIS:CORE:5.0.2
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>

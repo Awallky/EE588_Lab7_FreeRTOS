@@ -31,5 +31,7 @@
 //
 //*****************************************************************************
 extern uint32_t SwitchTaskInit(void);
+void checkbuttons(void);
+void poll_MDKII(uint8_t *prev_button1, uint8_t *prev_button2);
 
 #endif // __SWITCH_TASK_H__

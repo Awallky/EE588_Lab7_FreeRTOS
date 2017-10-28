@@ -57,9 +57,12 @@ extern uint8_t sw1_mode, sw2_mode;
 extern uint16_t Red, Green, Blue;
 extern uint16_t JoyX, JoyY;
 extern uint16_t AccX, AccY, AccZ;
+extern uint16_t prev_AccX, prev_AccY, prev_AccZ;
+extern uint8_t current;
 
-extern xQueueHandle g_pLEDQueue;
+extern xQueueHandle g_pLEDQueue, g_pAccelerometerQueue;
 extern xSemaphoreHandle g_pUARTSemaphore;
+extern xSemaphoreHandle g_pAccelerometerSemaphore, g_pModeSemaphore;
 
 //*****************************************************************************
 //
@@ -73,6 +76,7 @@ SwitchTask(void *pvParameters)
     uint32_t ui32SwitchDelay = 25;
     uint8_t ui8CurButtonState, ui8PrevButtonState;
     uint8_t ui8Message;
+		uint8_t prev_button1 = sw1_mode, prev_button2 = sw2_mode;
 
     ui8CurButtonState = ui8PrevButtonState = 0;
 
@@ -89,64 +93,29 @@ SwitchTask(void *pvParameters)
         //
         // Poll the debounced state of the buttons.
         //
-        ui8CurButtonState = ButtonsPoll(0, 0);
-
-        //
-        // Check if previous debounced state is equal to the current state.
-        //
-        if(ui8CurButtonState != ui8PrevButtonState)
-        {
-            ui8PrevButtonState = ui8CurButtonState;
-
-            //
-            // Check to make sure the change in state is due to button press
-            // and not due to button release.
-            //
-            if((ui8CurButtonState & ALL_BUTTONS) != 0)
-            {
-                if((ui8CurButtonState & ALL_BUTTONS) == LEFT_BUTTON)
-                {
-                    ui8Message = LEFT_BUTTON;
-
-                    //
-                    // Guard UART from concurrent access.
-                    //
-                    xSemaphoreTake(g_pUARTSemaphore, portMAX_DELAY);
-                    UARTprintf("Left Button is pressed.\n");
-                    xSemaphoreGive(g_pUARTSemaphore);
-										
-                }
-                else if((ui8CurButtonState & ALL_BUTTONS) == RIGHT_BUTTON)
-                {
-                    ui8Message = RIGHT_BUTTON;
-
-                    //
-                    // Guard UART from concurrent access.
-                    //
-                    xSemaphoreTake(g_pUARTSemaphore, portMAX_DELAY);
-                    UARTprintf("Right Button is pressed.\n");
-                    xSemaphoreGive(g_pUARTSemaphore);
-                }
-
-                //
-                // Pass the value of the button pressed to LEDTask.
-                //
-                if(xQueueSend(g_pLEDQueue, &ui8Message, portMAX_DELAY) !=
-                   pdPASS)
-                {
-                    //
-                    // Error. The queue should never be full. If so print the
-                    // error message on UART and wait for ever.
-                    //
-                    UARTprintf("\nQueue full. This should never happen.\n");
-                    while(1)
-                    {
-                    }
-                }
-            }
-        }
-
-        //
+        //ui8CurButtonState = ButtonsPoll(0, 0);
+			
+				//
+				// Poll the MDII buttons
+				//
+				poll_MDKII(&prev_button1, &prev_button2);
+			
+				//
+				// Pass the value of the button pressed to LEDTask.
+				//
+				if(xQueueSend(g_pLEDQueue, &ui8Message, portMAX_DELAY) != pdPASS)
+				{
+						//
+						// Error. The queue should never be full. If so print the
+						// error message on UART and wait for ever.
+						//
+						UARTprintf("\nQueue full. This should never happen.\n");
+						while(1)
+						{
+						}
+				}
+				
+				//
         // Wait for the required amount of time to check back.
         //
         vTaskDelayUntil(&ui16LastTime, ui32SwitchDelay / portTICK_RATE_MS);
@@ -170,12 +139,14 @@ SwitchTaskInit(void)
     //
     // Initialize the buttons
     //
-    ButtonsInit();
+    //ButtonsInit();
 	
 		//
 		// BSP Buttons Init
 		//
-		
+		BSP_Joystick_Init(); // Valvano 
+		BSP_Button1_Init(); // Valvano 
+		BSP_Button2_Init(); // Valvano 
 		
     //
     // Create the switch task.
@@ -193,53 +164,45 @@ SwitchTaskInit(void)
     return(0);
 }
 
-void checkbuttons(void){
-  static uint8_t prev1 = 0, prev2 = 0, prevS = 0; // previous values
-  static uint8_t mode = 0;
-  uint8_t current;
-
-  //BSP_Buzzer_Set(0);
-  //BSP_Joystick_Input(&JoyX, &JoyY, &current);
-  BSP_Accelerometer_Input(&AccX, &AccY, &AccZ);
-  if((current == 0) && (prevS != 0)){
-    // Select was pressed since last loop
-    mode = (mode + 1)&0x03;
-    Red = Green = Blue = 0;
-    //BSP_Buzzer_Set(512);           // beep until next interrupt (0.1 sec beep)
-  }
-  prevS = current;
-  if(mode == 0){
-    // button mode
-    current = BSP_Button1_Input();
-    if((current == 0) && (prev1 != 0)){
-      // Button1 was pressed since last loop
-      Green = (Green + 64)&0x3FF;
-    }
-    prev1 = current;
-    current = BSP_Button2_Input();
-    if((current == 0) && (prev2 != 0)){
-      // Button2 was pressed since last loop
-      Blue = (Blue + 64)&0x3FF;
-    }
-    prev2 = current;
-    Red = (Red + 1)&0x3FF;
-  } else if(mode == 1){
-    // joystick mode
-    Green = JoyX;
-    Blue = JoyY;
-    Red = 0;
-  } else if (mode == 2){
-    // accelerometer mode
-    if((AccX < 325) && (AccY > 325) && (AccY < 675) && (AccZ > 325) && (AccZ < 675)){
-      Red = 500; Green = 0; Blue = 0;
-    } else if((AccY < 325) && (AccX > 325) && (AccX < 675) && (AccZ > 325) && (AccZ < 675)){
-      Red = 350; Green = 350; Blue = 0;
-    } else if((AccX > 675) && (AccY > 325) && (AccY < 675) && (AccZ > 325) && (AccZ < 675)){
-      Red = 0; Green = 500; Blue = 0;
-    } else if((AccY > 675) && (AccX > 325) && (AccX < 675) && (AccZ > 325) && (AccZ < 675)){
-      Red = 0; Green = 0; Blue = 500;
-    }
-  } else{
-  }
-  //BSP_RGB_Set(Red, Green, Blue);
+void poll_MDKII(uint8_t *prev_button1, uint8_t *prev_button2){
+	//BSP_Joystick_Input(&JoyX, &JoyY, &current);
+	current = BSP_Button1_Input();	
+	if(!current){
+		sw1_mode = !sw1_mode;
+		//
+		// Guard UART from concurrent access.
+		//
+		if( sw1_mode == SW1_TEXT_MODE ){
+			xSemaphoreTake(g_pUARTSemaphore, portMAX_DELAY);
+			UARTprintf("Switch One is pressed.\n");
+			UARTprintf("In TEXT mode.\n");
+			xSemaphoreGive(g_pUARTSemaphore);
+		}
+		else{
+			xSemaphoreTake(g_pUARTSemaphore, portMAX_DELAY);
+			UARTprintf("Switch One is pressed.\n");
+			UARTprintf("In BUBBLE mode.\n");
+			xSemaphoreGive(g_pUARTSemaphore);
+		}		
+	}
+	current = BSP_Button2_Input();
+	if(!current){
+		sw2_mode = !sw2_mode;
+		//
+		// Guard UART from concurrent access.
+		//
+		if( sw2_mode == SW2_LOCKED ){
+			xSemaphoreTake(g_pUARTSemaphore, portMAX_DELAY);
+			UARTprintf("Switch Two is pressed.\n");
+			UARTprintf("In LOCK mode.\n");
+			xSemaphoreGive(g_pUARTSemaphore);
+		}
+		else if( sw2_mode == SW2_UNLOCKED ){
+			xSemaphoreTake(g_pUARTSemaphore, portMAX_DELAY);
+			UARTprintf("Switch Two is pressed.\n");
+			UARTprintf("In UNLOCK mode.\n");
+			xSemaphoreGive(g_pUARTSemaphore);
+		}
+		
+	}
 }

@@ -23,8 +23,14 @@ xQueueHandle g_pACCELEROMETERQueue;
 #define MKII_SW1				0x30
 #define MKII_SW2				0x40
 extern uint8_t sw1_mode, sw2_mode;
+extern uint16_t Red, Green, Blue;
+extern uint16_t JoyX, JoyY;
 extern uint16_t AccX, AccY, AccZ;
+extern uint16_t prev_AccX, prev_AccY, prev_AccZ;
+extern uint8_t current;
 extern xSemaphoreHandle g_pUARTSemaphore;
+extern xSemaphoreHandle g_pAccelerometerSemaphore, g_pModeSemaphore;
+extern xQueueHandle g_pLEDQueue, g_pAccelerometerQueue;
 
 //*****************************************************************************
 //
@@ -37,7 +43,7 @@ AccelerometerTask(void *pvParameters)
 {
 		portTickType ui32WakeTime;
     uint32_t ui32LEDToggleDelay;
-    uint8_t i8Message;
+    uint8_t ui8Message;
 		
 		//
     // Initialize the LED Toggle Delay to default value.
@@ -58,11 +64,14 @@ AccelerometerTask(void *pvParameters)
 			//
 			// Turn off the LED.
 			//
-			RGBDisable();
+			//RGBDisable();
 			xSemaphoreTake(g_pUARTSemaphore, portMAX_DELAY);
-			UARTprintf("In the Accelerometer Task\n");
-			BSP_Accelerometer_Input(&AccX, &AccY, &AccZ);
+			UARTprintf("X: %u\tY: %u\tZ: %u\n", AccX, AccY, AccZ);
 			xSemaphoreGive(g_pUARTSemaphore);
+			
+			xSemaphoreTake(g_pAccelerometerSemaphore, portMAX_DELAY);
+			BSP_Accelerometer_Input(&AccX, &AccY, &AccZ);
+			xSemaphoreGive(g_pAccelerometerSemaphore);
 			
 			//
 			// Wait for the required amount of time.

@@ -22,6 +22,10 @@
 //
 //*****************************************************************************
 
+//*****************************************************************************
+// 	Valvano's Functions that are incompatible due to shared usage of Ports:
+//*****************************************************************************
+
 #include <stdbool.h>
 #include <stdint.h>
 #include "./../include/inc/hw_memmap.h"
@@ -51,44 +55,6 @@ uint8_t sw1_mode, sw2_mode;
 
 //*****************************************************************************
 //
-//! \addtogroup example_list
-//! <h1>FreeRTOS Example (freertos_demo)</h1>
-//!
-//! This application demonstrates the use of FreeRTOS on Launchpad.
-//!
-//! The application blinks the user-selected LED at a user-selected frequency.
-//! To select the LED press the left button and to select the frequency press
-//! the right button.  The UART outputs the application status at 115,200 baud,
-//! 8-n-1 mode.
-//!
-//! This application utilizes FreeRTOS to perform the tasks in a concurrent
-//! fashion.  The following tasks are created:
-//!
-//! - An LED task, which blinks the user-selected on-board LED at a
-//!   user-selected rate (changed via the buttons).
-//!
-//! - A Switch task, which monitors the buttons pressed and passes the
-//!   information to LED task.
-//!
-//! In addition to the tasks, this application also uses the following FreeRTOS
-//! resources:
-//!
-//! - A Queue to enable information transfer between tasks.
-//!
-//! - A Semaphore to guard the resource, UART, from access by multiple tasks at
-//!   the same time.
-//!
-//! - A non-blocking FreeRTOS Delay to put the tasks in blocked state when they
-//!   have nothing to do.
-//!
-//! For additional details on FreeRTOS, refer to the FreeRTOS web page at:
-//! http://www.freertos.org/
-//
-//*****************************************************************************
-
-
-//*****************************************************************************
-//
 // The mutex that protects concurrent access of UART from multiple tasks.
 //
 //*****************************************************************************
@@ -100,7 +66,7 @@ xSemaphoreHandle g_pUARTSemaphore;
 // multiple tasks.
 //
 //*****************************************************************************
-xSemaphoreHandle g_pSW1Semaphore, g_pSW2Semaphore;
+xSemaphoreHandle g_pAccelerometerSemaphore, g_pModeSemaphore;
 
 //*****************************************************************************
 //
@@ -123,6 +89,8 @@ __error__(char *pcFilename, uint32_t ui32Line)
 uint16_t Red = 0, Green = 0, Blue = 0;
 uint16_t JoyX, JoyY;
 uint16_t AccX, AccY, AccZ;
+uint16_t prev_AccX, prev_AccY, prev_AccZ;
+uint8_t current;
 
 // return the number of digits
 int numlength(uint32_t n){
@@ -202,6 +170,10 @@ main(void)
 {
 		sw1_mode = SW1_TEXT_MODE;
 		sw2_mode = SW2_UNLOCKED;
+		prev_AccX = 0;
+		prev_AccY = 0;
+		prev_AccZ = 0;
+	
     //
     // Set the clocking to run at 50 MHz from the PLL.
     //
@@ -222,7 +194,7 @@ main(void)
     // Create a mutex to guard the UART.
     //
     g_pUARTSemaphore = xSemaphoreCreateMutex();
-		//g_pSW1Semaphore = xSemaphoreCreateMutex();
+		g_pAccelerometerSemaphore = xSemaphoreCreateMutex();
 		//g_pSW2Semaphore = xSemaphoreCreateMutex();
 
     //
